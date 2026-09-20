@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@import url('https://fonts.cdnfonts.com/css/solaimanlipi');
+
+@font-face {
+  font-family: 'SolaimanLipi';
+  src: url('https://cdn.jsdelivr.net/gh/fontwala/solaimanlipi@master/SolaimanLipi.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/fontwala/solaimanlipi@master/SolaimanLipi.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/fontwala/solaimanlipi@master/SolaimanLipi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SolaimanLipi';
+  src: url('https://cdn.jsdelivr.net/gh/fontwala/solaimanlipi@master/SolaimanLipi_Bold.woff') format('woff'),
+       url('https://cdn.jsdelivr.net/gh/fontwala/solaimanlipi@master/SolaimanLipi_Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+html, body, button, input, select, textarea {
+  font-family: 'SolaimanLipi', 'Solaiman Lipi', 'Hind Siliguri', sans-serif !important;
+}
+
+@layer utilities {
+  /* Bank Cheque security pattern */
+  .bank-security-bg {
+    background-color: #f8fafc;
+    background-image: radial-gradient(#0284c7 0.65px, transparent 0.65px), radial-gradient(#0ea5e9 0.65px, #f8fafc 0.65px);
+    background-size: 26px 26px;
+    background-position: 0 0, 13px 13px;
+  }
+
+  .bank-watermark {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      rgba(2, 132, 199, 0.035),
+      rgba(2, 132, 199, 0.035) 20px,
+      rgba(14, 165, 233, 0.07) 20px,
+      rgba(14, 165, 233, 0.07) 40px
+    );
+  }
+
+  .micr-font {
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 2px;
+  }
+}
+
+/* Print Rules specifically for A4 Chequebook with 2 cheques per page */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 6mm;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  #chequebook-print-container {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .a4-cheque-page {
+    width: 100% !important;
+    height: 275mm !important;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+    break-after: page !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0 !important;
+    padding: 4mm 0 !important;
+  }
+
+  .a4-cheque-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .cheque-leaf-unit {
+    height: 128mm !important;
+    box-sizing: border-box !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    border: 2px solid #0369a1 !important;
+    background: white !important;
+    color: #0f172a !important;
+  }
+}

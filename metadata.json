@@ -1,0 +1,7 @@
+{
+  "name": "আমার ব্যাংক - কিডস সেভিংস, চেকবুক ও ক্যাশ ভল্ট",
+  "description": "আসল ব্যাংকের মতো A4 চেকবুক (এক পাতায় ২ চেক), চেক ছাড়া উত্তোলন নিষিদ্ধ নিয়ম, মাটির ব্যাংক জমা ও লোন ট্র্যাকার।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
